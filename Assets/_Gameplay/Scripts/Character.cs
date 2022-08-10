@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    
+    public ColorEnum myColor;
 }
