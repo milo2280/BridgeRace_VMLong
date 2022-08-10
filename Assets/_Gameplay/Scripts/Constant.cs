@@ -17,4 +17,5 @@ public class Constant
     public const string TAG_SPAWNER = "Spawner";
     public const string TAG_STEP = "Step";
     public const string TAG_PLAYER = "Player";
+    public const string TAG_SPAWNERHOLDER = "SpawnerHolder";
 }

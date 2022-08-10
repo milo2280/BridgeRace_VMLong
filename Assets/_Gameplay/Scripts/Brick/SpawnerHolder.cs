@@ -8,7 +8,7 @@ public class SpawnerHolder : MonoBehaviour
 
     private int i, colorIndex, Rand, numOfSpawners, numOfColors;
     private List<int> classified;
-    public List<Collider> colored;
+    private List<Collider> colored;
     private List<Spawner> temp, blueSpawner, greenSpawner, redSpawner, yellowSpawner;
     private ColorEnum[] colorEnum;
 
@@ -90,6 +90,30 @@ public class SpawnerHolder : MonoBehaviour
         {
             spawner.SetColor(color);
         }
+    }
+
+    public List<Spawner> GetListSpawner(ColorEnum color)
+    {
+        switch (color)
+        {
+            case ColorEnum.blue:
+                temp = blueSpawner;
+                break;
+
+            case ColorEnum.green:
+                temp = greenSpawner;
+                break;
+
+            case ColorEnum.red:
+                temp = redSpawner;
+                break;
+
+            case ColorEnum.yellow:
+                temp = yellowSpawner;
+                break;
+        }
+
+        return temp;
     }
 
     private void OnTriggerEnter(Collider other)

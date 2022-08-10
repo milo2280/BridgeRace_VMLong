@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
 
     public MeshRenderer mes;
     public BoxCollider box;
+    public Transform trans;
 
     public void SetColor(ColorEnum color)
     {

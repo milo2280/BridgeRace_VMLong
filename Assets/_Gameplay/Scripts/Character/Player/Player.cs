@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Player : Character
 {
-    public float speed;
-    public Transform trans;
-    public Animator anim;
     private Vector3 rootPos, dragPos, mouseDir, moveDir;
     private Quaternion lookRotation;
 
-    public BrickHolder brickHolder;
     private Spawner spawner;
     private Step step;
     private int numOfBricks;
@@ -28,7 +24,6 @@ public class Player : Character
     private void Update()
     {
         JoystickMove();
-        Fall();
     }
 
     private void JoystickMove()
@@ -106,6 +101,5 @@ public class Player : Character
             step = Cache.GetStep(hit.collider);
             if (numOfBricks == 0 && step.color != myColor) moveDir.z = 0;
         }
-        
     }
 }

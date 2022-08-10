@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Spawner
   - Step
+  - SpawnerHolder
   layers:
   - Default
   - TransparentFX
