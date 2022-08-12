@@ -7,6 +7,8 @@ TagManager:
   - Spawner
   - Step
   - SpawnerHolder
+  - GrayBrick
+  - FinishLine
   layers:
   - Default
   - TransparentFX

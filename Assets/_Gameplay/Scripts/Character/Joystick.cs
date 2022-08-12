@@ -42,7 +42,7 @@ public class Joystick : MonoBehaviour
             stickTransform.position = dragPos;
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || LevelManager.Ins.isEndGame)
         {
             mouseDir = Vector3.zero;
             joystickTransform.gameObject.SetActive(false);

@@ -26,7 +26,7 @@ public class BrickHolder : MonoBehaviour
         myTransform.rotation = spineTransform.rotation;
     }
 
-    public void AddBrick(ColorEnum color)
+    public void AddBrick()
     {
         tempBrick = SimplePool.Spawn(brickPrefab, nextBrickPos, myTransform);
         nextBrickPos.y += 0.2f;
@@ -49,6 +49,18 @@ public class BrickHolder : MonoBehaviour
             nextBrickPos.y -= 0.2f;
             SimplePool.Despawn(brick);
             tempBrick = SimplePool.Spawn(grayBrickPrefab, myTransform.position + nextBrickPos, Quaternion.identity);
+        }
+        nextBrickPos = new Vector3(0f, 0f, -0.3f);
+        listBricks.Clear();
+        brickCount = 0;
+    }
+
+    public void ClearBrick()
+    {
+        foreach (GameObject brick in listBricks)
+        {
+            nextBrickPos.y -= 0.2f;
+            SimplePool.Despawn(brick);
         }
         nextBrickPos = new Vector3(0f, 0f, -0.3f);
         listBricks.Clear();

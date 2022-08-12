@@ -9,11 +9,9 @@ public class Enemy : Character
 {
     public EnemyState currentState;
     public List<Spawner> mySpawner;
-    public NavMeshAgent navMeshAgent;
 
     private Vector3 nextPos;
     private int Rand;
-    private bool isReachDes;
     private SpawnerHolder spawnerHolder;
     private Transform[] listGate;
 
@@ -25,13 +23,20 @@ public class Enemy : Character
 
     private void Update()
     {
-        if (!isFalling)
+        if (!LevelManager.Ins.isEndGame)
         {
-            StateMachine();
+            if (!isFalling)
+            {
+                StateMachine();
+            }
+            else
+            {
+                navMeshAgent.ResetPath();
+            }
         }
         else
         {
-            navMeshAgent.ResetPath();
+            EndGame();
         }
     }
 

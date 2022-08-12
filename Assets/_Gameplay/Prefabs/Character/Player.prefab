@@ -75,7 +75,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTransform: {fileID: 5622026989460424375}
   spineTransform: {fileID: 8132273766980707181}
-  characterTransform: {fileID: 6980203817902912998}
   brickPrefab: {fileID: 5034283770072706663, guid: 3283ad2d6182a5d4ab1bf248c15f458a, type: 3}
   grayBrickPrefab: {fileID: 4296125626989272827, guid: ce005b2085d6f6643b34d55006baccc5, type: 3}
 --- !u!1 &6980203817902912996
@@ -133,6 +132,8 @@ MonoBehaviour:
   myTransform: {fileID: 6980203817902912998}
   brickHolder: {fileID: 62221783927373461}
   myCollider: {fileID: 1613253146}
+  winPos: {fileID: 0}
+  navMeshAgent: {fileID: 1422608406}
   speed: 5
   joystick: {fileID: 0}
   layerStep:
@@ -191,16 +192,16 @@ NavMeshAgent:
   m_GameObject: {fileID: 6980203817902912996}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.01
-  m_Speed: 0
-  m_Acceleration: 0
+  m_Radius: 0.25
+  m_Speed: 2
+  m_Acceleration: 30
   avoidancePriority: 50
-  m_AngularSpeed: 0
+  m_AngularSpeed: 360
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.01
+  m_Height: 1.25
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4

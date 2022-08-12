@@ -16,7 +16,14 @@ public class Player : Character
 
     private void Update()
     {
-        JoystickMove();
+        if (!LevelManager.Ins.isEndGame)
+        {
+            JoystickMove();
+        }
+        else
+        {
+            EndGame();
+        }
     }
 
     private void JoystickMove()

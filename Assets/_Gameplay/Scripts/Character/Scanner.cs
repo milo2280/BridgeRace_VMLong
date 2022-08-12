@@ -21,6 +21,12 @@ public class Scanner : MonoBehaviour
                 spawner.TurnOff();
             }
         }
+
+        if (other.CompareTag(Constant.TAG_FINISHLINE))
+        {
+            LevelManager.Ins.isEndGame = true;
+            myCharacter.Win();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -5,10 +5,17 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform cameraTranform, player;
-    public Vector3 offset;
+    public Vector3 offset, offset2;
 
     private void LateUpdate()
     {
-        cameraTranform.position = player.position + offset;
+        if (!LevelManager.Ins.isEndGame)
+        {
+            cameraTranform.position = player.position + offset;
+        }
+        else
+        {
+            cameraTranform.position = Vector3.Lerp(cameraTranform.position, player.position + offset2, Time.deltaTime);
+        }
     }
 }

@@ -55,9 +55,10 @@ MonoBehaviour:
   myTransform: {fileID: 4753040078960706519}
   brickHolder: {fileID: 3409501710913366820}
   myCollider: {fileID: 125969113}
+  winPos: {fileID: 0}
+  navMeshAgent: {fileID: 5287377290501749936}
   currentState: 0
   mySpawner: []
-  navMeshAgent: {fileID: 5287377290501749936}
 --- !u!114 &1620196838976225099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,8 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myTransform: {fileID: 1838413962885600062}
   spineTransform: {fileID: 3381896956026020462}
-  characterTransform: {fileID: 4753040078960706519}
-  brickPrefab: {fileID: 5034283770072706663, guid: 3283ad2d6182a5d4ab1bf248c15f458a, type: 3}
+  brickPrefab: {fileID: 5034283770072706663, guid: f6491817cb6a87a45b4dea75b96004d2, type: 3}
   grayBrickPrefab: {fileID: 4296125626989272827, guid: ce005b2085d6f6643b34d55006baccc5, type: 3}
 --- !u!1 &7443853355122257179
 GameObject:
