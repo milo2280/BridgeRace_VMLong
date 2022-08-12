@@ -59,14 +59,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: 0
-  listMat:
-  - {fileID: 2100000, guid: d86cedf1143f8f44a9727384308720e1, type: 2}
-  - {fileID: 2100000, guid: f4901e013bbc3354c9a366c9a0e84ba0, type: 2}
-  - {fileID: 2100000, guid: 7bbf9d1c383eb9541af2c97e8c7260f9, type: 2}
-  - {fileID: 2100000, guid: 5d57cd667598faf4789fb03c8102aecd, type: 2}
-  mes: {fileID: 1903001603777163226}
-  box: {fileID: 4696279142847400679}
-  trans: {fileID: 6607134017147955560}
+  meshRenderer: {fileID: 1903001603777163226}
+  myCollider: {fileID: 4696279142847400679}
+  myTransform: {fileID: 6607134017147955560}
 --- !u!1 &9007621882061078641
 GameObject:
   m_ObjectHideFlags: 0

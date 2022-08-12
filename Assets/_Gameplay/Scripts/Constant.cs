@@ -14,8 +14,12 @@ public class Constant
     public const string ANIM_LOSE = "lose";
 
     // Tag
-    public const string TAG_SPAWNER = "Spawner";
     public const string TAG_STEP = "Step";
     public const string TAG_PLAYER = "Player";
+    public const string TAG_SPAWNER = "Spawner";
+    public const string TAG_GRAYBRICK = "GrayBrick";
     public const string TAG_SPAWNERHOLDER = "SpawnerHolder";
+
+    // Other
+    public const string ID_COLOR = "_Color";
 }

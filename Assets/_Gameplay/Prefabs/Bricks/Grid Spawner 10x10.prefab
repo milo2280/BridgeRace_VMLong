@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4626573097125830313}
   m_Layer: 0
   m_Name: Grid Spawner 10x10
-  m_TagString: Untagged
+  m_TagString: SpawnerHolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,8 +57,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: -7}
+  m_Size: {x: 15, y: 1, z: 1.4}
+  m_Center: {x: 0, y: 0.5, z: -7.2}
 --- !u!114 &4626573097125830313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +172,9 @@ MonoBehaviour:
   - {fileID: 4573492619267457151}
   - {fileID: 5673516963990929820}
   - {fileID: 4006609706703953579}
-  colored: []
+  listGate:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &7276853819855678275
 GameObject:
   m_ObjectHideFlags: 0

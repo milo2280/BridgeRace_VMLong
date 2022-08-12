@@ -5,88 +5,57 @@ using UnityEngine;
 public class SpawnerHolder : MonoBehaviour
 {
     public Spawner[] listSpawner;
+    public Transform[] listGate;
 
-    private int i, colorIndex, Rand, numOfSpawners, numOfColors;
-    private List<int> classified;
-    private List<Collider> colored;
-    private List<Spawner> temp, blueSpawner, greenSpawner, redSpawner, yellowSpawner;
+    private int i, colorIndex, Rand, spawnerCount, colorCount;
     private ColorEnum[] colorEnum;
+    private List<int> classified = new List<int>();
+    private List<Collider> colored = new List<Collider>();
+    private List<Spawner> blueSpawner = new List<Spawner>();
+    private List<Spawner> greenSpawner = new List<Spawner>();
+    private List<Spawner> redSpawner = new List<Spawner>();
+    private List<Spawner> yellowSpawner = new List<Spawner>();
+    private Dictionary<ColorEnum, List<Spawner>> spawnerDict = new Dictionary<ColorEnum, List<Spawner>>();
 
     private void Start()
     {
-        colorIndex = 0;
+        InitDict();
+        colorCount = spawnerDict.Count;
+        spawnerCount = listSpawner.Length;
         colorEnum = (ColorEnum[])System.Enum.GetValues(typeof(ColorEnum));
-        numOfColors = colorEnum.Length - 1;
-        numOfSpawners = listSpawner.Length;
-        classified = new List<int>();
-        colored = new List<Collider>();
-        blueSpawner = new List<Spawner>();
-        greenSpawner = new List<Spawner>();
-        redSpawner = new List<Spawner>();
-        yellowSpawner = new List<Spawner>();
 
         RandomColor();
     }
 
+    private void InitDict()
+    {
+        spawnerDict.Add(ColorEnum.blue, blueSpawner);
+        spawnerDict.Add(ColorEnum.green, greenSpawner);
+        spawnerDict.Add(ColorEnum.red, redSpawner);
+        spawnerDict.Add(ColorEnum.yellow, yellowSpawner);
+    }
+
     private void RandomColor()
     {
-        for (i = 0; i < numOfSpawners; i++)
+        for (i = 0; i < spawnerCount; i++)
         {
-            if (i % (int)(numOfSpawners / numOfColors) == 0) colorIndex++;
+            if (i % (int)(spawnerCount / colorCount) == 0) colorIndex++;
+            if (colorIndex > colorCount) break;
 
-            Rand = Random.Range(0, numOfSpawners);
+            Rand = Random.Range(0, spawnerCount);
             while (classified.Contains(Rand))
             {
-                Rand = Random.Range(0, numOfSpawners);
+                Rand = Random.Range(0, spawnerCount);
             }
 
             classified.Add(Rand);
-            switch (colorIndex)
-            {
-                case 1:
-                    blueSpawner.Add(listSpawner[Rand]);
-                    break;
-
-                case 2:
-                    greenSpawner.Add(listSpawner[Rand]);
-                    break;
-
-                case 3:
-                    redSpawner.Add(listSpawner[Rand]);
-                    break;
-
-                case 4:
-                    yellowSpawner.Add(listSpawner[Rand]);
-                    break;
-
-                default:
-                    break;
-            }
+            spawnerDict[colorEnum[colorIndex]].Add(listSpawner[Rand]);
         }
     }
 
     private void SetColor(ColorEnum color)
     {
-        switch (color)
-        {
-            case ColorEnum.blue:
-                temp = blueSpawner;
-                break;
-
-            case ColorEnum.green:
-                temp = greenSpawner;
-                break;
-
-            case ColorEnum.red:
-                temp = redSpawner;
-                break;
-
-            case ColorEnum.yellow:
-                temp = yellowSpawner;
-                break;
-        }
-
-        foreach(Spawner spawner in temp)
+        foreach(Spawner spawner in spawnerDict[color])
         {
             spawner.SetColor(color);
         }
@@ -94,33 +63,19 @@ public class SpawnerHolder : MonoBehaviour
 
     public List<Spawner> GetListSpawner(ColorEnum color)
     {
-        switch (color)
-        {
-            case ColorEnum.blue:
-                temp = blueSpawner;
-                break;
+        return spawnerDict[color];
+    }
 
-            case ColorEnum.green:
-                temp = greenSpawner;
-                break;
-
-            case ColorEnum.red:
-                temp = redSpawner;
-                break;
-
-            case ColorEnum.yellow:
-                temp = yellowSpawner;
-                break;
-        }
-
-        return temp;
+    public Transform[] GetListGate()
+    {
+        return listGate;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(Constant.TAG_PLAYER) && !colored.Contains(other))
         {
-            SetColor(other.GetComponent<Character>().myColor);
+            SetColor(CacheCharacter.Get(other).color);
             colored.Add(other);
         }
     }

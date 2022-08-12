@@ -5,47 +5,27 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public ColorEnum color;
-    public Material[] listMat;
-
-    public MeshRenderer mes;
-    public BoxCollider box;
-    public Transform trans;
+    public MeshRenderer meshRenderer;
+    public BoxCollider myCollider;
+    public Transform myTransform;
 
     public void SetColor(ColorEnum color)
     {
         this.color = color;
-        mes.enabled = true;
-
-        switch (color)
-        {
-            case ColorEnum.blue:
-                mes.material = listMat[0];
-                break;
-
-            case ColorEnum.green:
-                mes.material = listMat[1];
-                break;
-
-            case ColorEnum.red:
-                mes.material = listMat[2];
-                break;
-
-            case ColorEnum.yellow:
-                mes.material = listMat[3];
-                break;
-        }
+        meshRenderer.enabled = true;
+        meshRenderer.material.SetColor(Constant.ID_COLOR, DataManager.Ins.colorDict[color]);
     }
 
     public void TurnOn()
     {
-        mes.enabled = true;
-        box.enabled = true;
+        meshRenderer.enabled = true;
+        myCollider.enabled = true;
     }
 
     public void TurnOff()
     {
-        mes.enabled = false;
-        box.enabled = false;
+        meshRenderer.enabled = false;
+        myCollider.enabled = false;
         Invoke("TurnOn", 5.0f);
     }
 }

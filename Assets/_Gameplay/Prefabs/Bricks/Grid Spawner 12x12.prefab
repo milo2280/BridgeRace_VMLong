@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 7599586939852305523}
   m_Layer: 0
   m_Name: Grid Spawner 12x12
-  m_TagString: Untagged
+  m_TagString: SpawnerHolder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -478,7 +478,10 @@ MonoBehaviour:
   - {fileID: 7951883320066769684}
   - {fileID: 7951883321394578276}
   - {fileID: 7951883320599053808}
-  colored: []
+  listGate:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &3002469189754028363
 PrefabInstance:
   m_ObjectHideFlags: 0
