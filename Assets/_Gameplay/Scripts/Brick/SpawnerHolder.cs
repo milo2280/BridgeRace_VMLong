@@ -35,6 +35,18 @@ public class SpawnerHolder : MonoBehaviour
         spawnerDict.Add(ColorEnum.yellow, yellowSpawner);
     }
 
+    public void Reset()
+    {
+        classified.Clear();
+        colored.Clear();
+        blueSpawner.Clear();
+        greenSpawner.Clear();
+        redSpawner.Clear();
+        yellowSpawner.Clear();
+
+        RandomColor();
+    }
+
     private void RandomColor()
     {
         for (i = 0; i < spawnerCount; i++)

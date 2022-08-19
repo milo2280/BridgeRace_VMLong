@@ -14,6 +14,7 @@ public class Player : Character
     private RaycastHit hit;
     private Step step;
 
+
     private void Update()
     {
         if (!LevelManager.Ins.isEndGame)
@@ -23,6 +24,8 @@ public class Player : Character
         else
         {
             EndGame();
+            if (isWin) LevelManager.Ins.endGameUI = 1;
+            else LevelManager.Ins.endGameUI = 2;
         }
     }
 
@@ -74,5 +77,12 @@ public class Player : Character
                 else if (moveDir.z < 0 && step.color == ColorEnum.none) moveDir.z = 0;
             }
         }
+    }
+
+    public void Reset()
+    {
+        myTransform.position = new Vector3(-3f, 0f, -9f);
+        brickHolder.ClearBrick();
+        navMeshAgent.ResetPath();
     }
 }

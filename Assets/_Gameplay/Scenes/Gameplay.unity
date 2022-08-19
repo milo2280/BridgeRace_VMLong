@@ -174,7 +174,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
@@ -351,6 +351,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8861863404441027621, guid: 32426fc37ce50384fbcec491a66b0b4a, type: 3}
   m_PrefabInstance: {fileID: 1960270281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &208498501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2422712658336342314, guid: 0dbf95a9887e4f043be2e60e23354943, type: 3}
+  m_PrefabInstance: {fileID: 1551546210}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &218669060
 GameObject:
@@ -668,11 +673,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380247934}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9abf1a7645d67e441aa448167f421591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanvasParentTF: {fileID: 57273078}
 --- !u!4 &380247936
 Transform:
   m_ObjectHideFlags: 0
@@ -797,10 +803,6 @@ PrefabInstance:
     - target: {fileID: 2422712658336342314, guid: 77a8b3bcf3e764d43bf1f5f55d66a585, type: 3}
       propertyPath: m_Name
       value: Enemy Yellow
-      objectReference: {fileID: 0}
-    - target: {fileID: 2422712658336342314, guid: 77a8b3bcf3e764d43bf1f5f55d66a585, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4413614067999312815, guid: 77a8b3bcf3e764d43bf1f5f55d66a585, type: 3}
       propertyPath: winPos
@@ -1152,6 +1154,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEndGame: 0
+  endGameUI: 0
+  allLevel:
+  - {fileID: 11400000, guid: ca28f99c7a321ff43b3637bd859fa068, type: 2}
+  - {fileID: 11400000, guid: 2037ecb39eaefb44590fb73da13e3fc2, type: 2}
+  - {fileID: 11400000, guid: c956c83a374e34e42b412b2ee40ead6c, type: 2}
+  currentLevel: {fileID: 0}
+  currentLevelText: 
+  currentEnemySpeed: 0
+  enemyPrefabs:
+  - {fileID: 2422712658336342314, guid: 485ff1f9e83454f448e738d63eab3996, type: 3}
+  - {fileID: 2422712658336342314, guid: 0dbf95a9887e4f043be2e60e23354943, type: 3}
+  - {fileID: 2422712658336342314, guid: 77a8b3bcf3e764d43bf1f5f55d66a585, type: 3}
+  enemies:
+  - {fileID: 1370798943}
+  - {fileID: 208498501}
+  - {fileID: 1060422931}
+  spawnerHolders: []
+  player: {fileID: 897037986}
 --- !u!4 &669812341
 Transform:
   m_ObjectHideFlags: 0
@@ -2107,6 +2127,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71d8341ce356d824683108ce4ab4a603, type: 3}
+--- !u!114 &897037986 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6980203817902912997, guid: e40efff590889fa4fab641f34f2cf70d, type: 3}
+  m_PrefabInstance: {fileID: 1417778196}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0de969ac2f48db141926e08ecda976d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,7 +2843,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059932710
 MonoBehaviour:
@@ -2852,6 +2883,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059932708}
   m_CullTransparentMesh: 1
+--- !u!1 &1060422931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2422712658336342314, guid: 77a8b3bcf3e764d43bf1f5f55d66a585, type: 3}
+  m_PrefabInstance: {fileID: 503175966}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1221771375
 GameObject:
   m_ObjectHideFlags: 0
@@ -3203,6 +3239,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 485ff1f9e83454f448e738d63eab3996, type: 3}
+--- !u!1 &1370798943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2422712658336342314, guid: 485ff1f9e83454f448e738d63eab3996, type: 3}
+  m_PrefabInstance: {fileID: 1314496944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1417778196
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3586,10 +3627,6 @@ PrefabInstance:
     - target: {fileID: 2422712658336342314, guid: 0dbf95a9887e4f043be2e60e23354943, type: 3}
       propertyPath: m_Name
       value: Enemy Red
-      objectReference: {fileID: 0}
-    - target: {fileID: 2422712658336342314, guid: 0dbf95a9887e4f043be2e60e23354943, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4413614067999312815, guid: 0dbf95a9887e4f043be2e60e23354943, type: 3}
       propertyPath: winPos
@@ -4264,7 +4301,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1815091779
 MonoBehaviour:
@@ -4502,7 +4539,7 @@ Canvas:
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
-  m_OverrideSorting: 0
+  m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0

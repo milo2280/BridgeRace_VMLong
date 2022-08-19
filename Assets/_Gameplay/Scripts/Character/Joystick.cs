@@ -20,7 +20,7 @@ public class Joystick : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && GameManager.Ins.IsState(GameState.Gameplay))
         {
             if (Input.GetMouseButtonDown(0))
             {

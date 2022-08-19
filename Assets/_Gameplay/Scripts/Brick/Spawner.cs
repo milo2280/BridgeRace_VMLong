@@ -26,6 +26,6 @@ public class Spawner : MonoBehaviour
     {
         meshRenderer.enabled = false;
         myCollider.enabled = false;
-        Invoke("TurnOn", 5.0f);
+        Invoke(nameof(TurnOn), 5.0f);
     }
 }

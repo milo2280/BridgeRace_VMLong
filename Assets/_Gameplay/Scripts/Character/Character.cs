@@ -70,7 +70,7 @@ public class Character : MonoBehaviour
         animator.SetTrigger(Constant.ANIM_FALL);
         brickHolder.DropBrick();
         myCollider.enabled = false;
-        Invoke("KipUp", 6f);
+        Invoke(nameof(KipUp), 6f);
     }
 
     public void KipUp()

@@ -19,6 +19,7 @@ public class Enemy : Character
     {
         mySpawner = new List<Spawner>();
         nextPos = myTransform.position;
+        navMeshAgent.speed = LevelManager.Ins.currentEnemySpeed;
     }
 
     private void Update()
@@ -82,8 +83,11 @@ public class Enemy : Character
 
     private void RandomNextPos()
     {
-        Rand = Random.Range(0, mySpawner.Count);
-        nextPos = mySpawner[Rand].myTransform.position;
+        if (mySpawner.Count > 0)
+        {
+            Rand = Random.Range(0, mySpawner.Count);
+            nextPos = mySpawner[Rand].myTransform.position;
+        }
     }
 
     private void Build()

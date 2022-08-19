@@ -13,5 +13,12 @@ public class Step : MonoBehaviour
         this.color = color;
         meshRenderer.enabled = true;
         meshRenderer.material.SetColor(Constant.ID_COLOR, DataManager.Ins.colorDict[color]);
+        LevelManager.Ins.StepRegister(this);
+    }
+
+    public void Reset()
+    {
+        this.color = ColorEnum.none;
+        meshRenderer.enabled = false;
     }
 }
